@@ -1,4 +1,3 @@
-// Language Switcher Functionality
 class LanguageSwitcher {
   constructor() {
     this.ptElements = document.querySelectorAll('.pt');
@@ -23,7 +22,6 @@ class LanguageSwitcher {
     
     this.currentLang = lang;
     
-    // Update active button styling
     this.langBtns.forEach(btn => {
       if (btn.getAttribute('data-lang') === lang) {
         btn.classList.add('active');
@@ -32,7 +30,6 @@ class LanguageSwitcher {
       }
     });
     
-    // Show/hide elements based on language
     if (lang === 'pt') {
       this.ptElements.forEach(el => el.style.display = '');
       this.enElements.forEach(el => el.style.display = 'none');
@@ -41,16 +38,11 @@ class LanguageSwitcher {
       this.enElements.forEach(el => el.style.display = '');
     }
     
-    // Update HTML lang attribute
     document.documentElement.lang = lang === 'pt' ? 'pt-br' : 'en';
     
-    // Optional: Save user preference
     localStorage.setItem('preferred-language', lang);
   }
 }
-
-// O JavaScript permanece o mesmo, mas vou reenviar a parte do Carousel 
-// para garantir que funcione com os 4 slides
 
 class Carousel {
   constructor() {
@@ -65,21 +57,17 @@ class Carousel {
   }
   
   init() {
-    // Add event listeners
     if (this.prevBtn) this.prevBtn.addEventListener('click', () => this.prevSlide());
     if (this.nextBtn) this.nextBtn.addEventListener('click', () => this.nextSlide());
     
-    // Add dot click events
     if (this.dots.length) {
       this.dots.forEach((dot, index) => {
         dot.addEventListener('click', () => this.goToSlide(index));
       });
     }
     
-    // Auto slide every 5 seconds
     this.startAutoSlide();
     
-    // Pause auto slide on hover
     const container = document.querySelector('.carousel-container');
     if (container) {
       container.addEventListener('mouseenter', () => this.stopAutoSlide());
@@ -89,10 +77,8 @@ class Carousel {
   
   updateCarousel() {
     if (!this.slides) return;
-    // Update slide position
     this.slides.style.transform = `translateX(-${this.currentSlide * 100}%)`;
     
-    // Update dots
     this.dots.forEach((dot, index) => {
       if (index === this.currentSlide) {
         dot.classList.add('active');
@@ -128,7 +114,6 @@ class Carousel {
   }
 }
 
-// Animation on scroll
 const observerOptions = {
   threshold: 0.1,
   rootMargin: '0px 0px -50px 0px'
@@ -140,7 +125,6 @@ const observer = new IntersectionObserver((entries) => {
       entry.target.style.opacity = '1';
       entry.target.style.transform = 'translateY(0)';
       
-      // Animate skill bars when they come into view
       if (entry.target.classList.contains('skill-item')) {
         const progressBar = entry.target.querySelector('.skill-progress');
         if (progressBar) {
@@ -155,7 +139,6 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-// Observe all sections and skill items
 document.querySelectorAll('section, .timeline-item, .skill-item').forEach(el => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(20px)';
@@ -163,22 +146,17 @@ document.querySelectorAll('section, .timeline-item, .skill-item').forEach(el => 
   observer.observe(el);
 });
 
-// Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize language switcher
   const langSwitcher = new LanguageSwitcher();
   
-  // Check for saved language preference
   const savedLang = localStorage.getItem('preferred-language');
   if (savedLang && savedLang !== 'pt') {
     langSwitcher.switchLanguage(savedLang);
   }
   
-  // Initialize carousel
   new Carousel();
 });
 
-// Add hover effect for timeline items
 document.querySelectorAll('.timeline-item').forEach(item => {
   item.addEventListener('mouseenter', () => {
     const dot = item.querySelector('.timeline-dot');
