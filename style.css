@@ -104,7 +104,6 @@ section h3::after {
   border-radius: 3px;
 }
 
-/* Timeline horizontal styles */
 .timeline-horizontal {
   display: flex;
   justify-content: space-between;
@@ -179,7 +178,6 @@ section h3::after {
   color: #b0b7d0;
 }
 
-/* Skills grid layouts */
 .skills-grid-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -241,7 +239,6 @@ section h3::after {
   font-weight: 500;
 }
 
-/* Carousel styles */
 .carousel-container {
   position: relative;
   max-width: 900px;
@@ -344,7 +341,6 @@ section h3::after {
   transform: scale(1.2);
 }
 
-/* Education and experience styles */
 .education-item, .experience-item {
   background: #1a1f2f;
   padding: 25px;
@@ -386,7 +382,6 @@ section h3::after {
   color: #b0b7d0;
 }
 
-/* Animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -424,7 +419,6 @@ section h3::after {
   }
 }
 
-/* Responsive design */
 @media (max-width: 1024px) {
   .skills-grid-3 {
     grid-template-columns: repeat(2, 1fr);
@@ -502,7 +496,6 @@ section h3::after {
   }
 }
 
-/* Language Switcher Styles */
 .language-switcher {
   position: fixed;
   top: 20px;
@@ -543,7 +536,6 @@ section h3::after {
   box-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
 }
 
-/* Responsive adjustments for language switcher */
 @media (max-width: 768px) {
   .language-switcher {
     top: 10px;
@@ -569,7 +561,6 @@ section h3::after {
   }
 }
 
-/* Skill header com ícone */
 .skill-header {
   display: flex;
   align-items: center;
@@ -595,7 +586,6 @@ section h3::after {
   flex: 1;
 }
 
-/* Project Slides Styling */
 .project-slide {
   display: flex;
   flex-direction: column;
@@ -657,7 +647,6 @@ section h3::after {
   border-color: rgba(255, 255, 255, 0.4);
 }
 
-/* Ajuste para os slides normais */
 .slide:not(.project-slide) {
   min-height: 400px;
   display: flex;
@@ -666,7 +655,6 @@ section h3::after {
   align-items: center;
 }
 
-/* Responsividade para projetos */
 @media (max-width: 768px) {
   .project-slide {
     padding: 40px 20px;
