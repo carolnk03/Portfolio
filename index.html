@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <!-- Mudança de linguagem -->
+  <!-- Language Switcher -->
   <div class="language-switcher">
     <button class="lang-btn active" data-lang="pt">🇧🇷 Português</button>
     <button class="lang-btn" data-lang="en">🇺🇸 English</button>
@@ -45,7 +45,7 @@
   </header>
 
   <main>
-    <!-- Sobre mim -->
+    <!-- Sobre mim / About Me -->
     <section class="about">
       <h3 class="pt">Sobre mim</h3>
       <h3 class="en" style="display: none;">About Me</h3>
@@ -67,7 +67,7 @@
       </div>
     </section>
 
-    <!-- Objetivo -->
+    <!-- Objetivo / Objective -->
     <section class="objective">
       <h3 class="pt">Objetivo</h3>
       <h3 class="en" style="display: none;">Objective</h3>
@@ -83,7 +83,7 @@
       </div>
     </section>
 
-    <!-- Formação -->
+    <!-- Formação / Education -->
     <section class="education">
       <h3 class="pt">Formação</h3>
       <h3 class="en" style="display: none;">Education</h3>
@@ -97,7 +97,7 @@
       </div>
     </section>
 
-    <!-- Cursos complementares -->
+    <!-- Cursos complementares / Complementary Courses -->
     <section class="courses">
       <h3 class="pt">Cursos complementares</h3>
       <h3 class="en" style="display: none;">Complementary Courses</h3>
@@ -149,7 +149,7 @@
       </div>
     </section>
 
-    <!-- Experiências -->
+    <!-- Experiências / Experience -->
     <section class="experience">
       <h3 class="pt">Experiências</h3>
       <h3 class="en" style="display: none;">Experience</h3>
@@ -371,35 +371,18 @@
               <p class="pt">Projeto web desenvolvido em PHP e MySQL para gerenciamento de chamados de suporte. O sistema permite cadastro e login de usuários, abertura de chamados, acompanhamento de status e visualização das solicitações em painel administrativo. O projeto foi criado com foco em praticar desenvolvimento back-end e manipulação de banco de dados.</p>
               <p class="en" style="display: none;">Web project developed in PHP and MySQL for managing support tickets. The system allows user registration and login, ticket creation, status tracking, and request visualization through an administrative dashboard. The project was created with a focus on practicing back-end development and database manipulation.</p>
             </div>
+          
             <div class="project-links">
               <a href="https://github.com/carolnk03/Sistema-de-Chamados" class="project-btn pt" target="_blank">
-                📊 Ver Projeto
+                💻 Ver no GitHub
               </a>
               <a href="https://github.com/carolnk03/Sistema-de-Chamados" class="project-btn en" style="display: none;" target="_blank">
-                📊 View Project
-              </a>
-            </div>
-          </div>
-
-          <!-- Slide 2 - chatbot academico -->
-          <div class="slide project-slide">
-            <h2 class="pt">Chatbot acadêmico</h2>
-            <h2 class="en" style="display: none;">Academic chatbot</h2>
-            <div class="project-description">
-              <p class="pt">Este projeto foi desenvolvido como parte de um trabalho acadêmico, com o objetivo de criar um chatbot capaz de responder às dúvidas dos usuários sobre a faculdade. Para o desenvolvimento, utilizei a linguagem Python na plataforma Google Colab.</p>
-              <p class="en" style="display: none;">This project was developed as part of an academic assignment, with the objective of creating a chatbot capable of answering users' questions about the college. For its development, I used the Python programming language on the Google Colab platform.</p>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/carolnk03/chatbot-Academico" class="project-btn pt" target="_blank">
-                📊 Ver Projeto
-              </a>
-              <a href="https://github.com/carolnk03/chatbot-Academico" class="project-btn en" style="display: none;" target="_blank">
-                📊 View Project
+                💻 View on GitHub
               </a>
             </div>
           </div>
           
-          <!-- Slide 3 - Projeto Power BI Dashboard de Vendas -->
+          <!-- Slide 2 - Projeto Power BI Dashboard de Vendas -->
           <div class="slide project-slide">
             <h2 class="pt">Dashboard de Vendas</h2>
             <h2 class="en" style="display: none;">Sales Dashboard</h2>
@@ -409,15 +392,15 @@
             </div>
             <div class="project-links">
               <a href="https://github.com/carolnk03/Dashboard-de-An-lise-de-Vendas" class="project-btn pt" target="_blank">
-                📊 Ver Projeto
+                💻 Ver no GitHub
               </a>
               <a href="https://github.com/carolnk03/Dashboard-de-An-lise-de-Vendas" class="project-btn en" style="display: none;" target="_blank">
-                📊 View Project
+                💻 View on GitHub
               </a>
             </div>
           </div>
 
-          <!-- Slide 4 - Projeto Dashboard RH -->
+          <!-- Slide 3 - Projeto Dashboard RH -->
           <div class="slide project-slide">
             <h2 class="pt">Dashboard RH - Análise de Funcionários</h2>
             <h2 class="en" style="display: none;">HR Dashboard - Employee Analytics</h2>
@@ -427,15 +410,16 @@
             </div>
             <div class="project-links">
               <a href="https://github.com/carolnk03/Dashboard-de-RH" class="project-btn pt" target="_blank">
-                📊 Ver Projeto
+                💻 Ver no GitHub
               </a>
               <a href="https://github.com/carolnk03/Dashboard-de-RH" class="project-btn en" style="display: none;" target="_blank">
-                📊 View Project
+                💻 View on GitHub
               </a>
+              
             </div>
           </div>
 
-          <!-- Slide 5 - Portfolio -->
+          <!-- Slide 4 - Portfolio -->
           <div class="slide project-slide">
             <h2 class="pt">Esse portfólio</h2>
             <h2 class="en" style="display: none;">This portfolio</h2>
@@ -453,13 +437,24 @@
           <span class="dot"></span>
           <span class="dot"></span>
           <span class="dot"></span>
-          <span class="dot"></span>
         </div>
       </div>
     </section>
   </main>
 
   <script src="script.js"></script>
+
+  <!-- Modal para imagens dos projetos -->
+  <div id="imageModal" class="modal">
+    <span class="close-modal">&times;</span>
+    <div class="modal-content">
+      <div class="modal-images">
+        <!-- As imagens serão inseridas via JavaScript -->
+      </div>
+      <button class="modal-prev">❮</button>
+      <button class="modal-next">❯</button>
+    </div>
+  </div>
 </body>
 
 </html>
