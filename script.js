@@ -1,4 +1,4 @@
-// Language Switcher Functionality
+// funcionalidade de idiomas
 class LanguageSwitcher {
   constructor() {
     this.ptElements = document.querySelectorAll('.pt');
@@ -23,7 +23,7 @@ class LanguageSwitcher {
     
     this.currentLang = lang;
     
-    // Update active button styling
+    // Atualiza o estilo do botão ativo
     this.langBtns.forEach(btn => {
       if (btn.getAttribute('data-lang') === lang) {
         btn.classList.add('active');
@@ -32,7 +32,7 @@ class LanguageSwitcher {
       }
     });
     
-    // Show/hide elements based on language
+    // mostrar/esconder os elementos baseado no idioma
     if (lang === 'pt') {
       this.ptElements.forEach(el => el.style.display = '');
       this.enElements.forEach(el => el.style.display = 'none');
@@ -41,15 +41,15 @@ class LanguageSwitcher {
       this.enElements.forEach(el => el.style.display = '');
     }
     
-    // Update HTML lang attribute
+    // Atualiza atributo de idioma HTML
     document.documentElement.lang = lang === 'pt' ? 'pt-br' : 'en';
     
-    // Optional: Save user preference
+    // Salva a preferência do usuário
     localStorage.setItem('preferred-language', lang);
   }
 }
 
-// Carousel Class with touch support for mobile
+// Classe Carrossel com suporte para toque em dispositivos móveis
 class Carousel {
   constructor() {
     this.currentSlide = 0;
@@ -59,7 +59,6 @@ class Carousel {
     this.nextBtn = document.querySelector('.next-btn');
     this.dots = document.querySelectorAll('.dot');
     
-    // Touch support variables
     this.touchStartX = 0;
     this.touchEndX = 0;
     
@@ -67,28 +66,26 @@ class Carousel {
   }
   
   init() {
-    // Add event listeners
     if (this.prevBtn) this.prevBtn.addEventListener('click', () => this.prevSlide());
     if (this.nextBtn) this.nextBtn.addEventListener('click', () => this.nextSlide());
     
-    // Add dot click events
     if (this.dots.length) {
       this.dots.forEach((dot, index) => {
         dot.addEventListener('click', () => this.goToSlide(index));
       });
     }
     
-    // Add touch support for mobile
+    // Adiciona suporte a toque para dispositivos móveis
     const container = document.querySelector('.carousel-container');
     if (container) {
       container.addEventListener('touchstart', (e) => this.handleTouchStart(e), { passive: true });
       container.addEventListener('touchend', (e) => this.handleTouchEnd(e), { passive: true });
     }
     
-    // Auto slide every 5 seconds
+    // Deslizamento automático
     this.startAutoSlide();
     
-    // Pause auto slide on hover (desktop) and touch (mobile)
+    // Pausa o deslizamento automático ao passar o cursor (pc) e ao tocar (dispositivo móvel)
     if (container) {
       container.addEventListener('mouseenter', () => this.stopAutoSlide());
       container.addEventListener('mouseleave', () => this.startAutoSlide());
@@ -115,10 +112,10 @@ class Carousel {
     
     if (Math.abs(diff) > swipeThreshold) {
       if (diff > 0) {
-        // Swipe left - next slide
+        // próximo slide
         this.nextSlide();
       } else {
-        // Swipe right - previous slide
+        // slide anterior
         this.prevSlide();
       }
     }
@@ -126,10 +123,9 @@ class Carousel {
   
   updateCarousel() {
     if (!this.slides) return;
-    // Update slide position
+    // Atualiza a posição do slide
     this.slides.style.transform = `translateX(-${this.currentSlide * 100}%)`;
     
-    // Update dots
     this.dots.forEach((dot, index) => {
       if (index === this.currentSlide) {
         dot.classList.add('active');
@@ -168,7 +164,7 @@ class Carousel {
   }
 }
 
-// Animation on scroll with performance optimization
+// Animação ao rolar com otimização de desempenho
 const observerOptions = {
   threshold: 0.1,
   rootMargin: '0px 0px -50px 0px'
@@ -180,7 +176,7 @@ const observer = new IntersectionObserver((entries) => {
       entry.target.style.opacity = '1';
       entry.target.style.transform = 'translateY(0)';
       
-      // Animate skill bars when they come into view
+      // Animar as barras de habilidade quando elas aparecerem na tela
       if (entry.target.classList.contains('skill-item')) {
         const progressBar = entry.target.querySelector('.skill-progress');
         if (progressBar && !progressBar.dataset.animated) {
@@ -193,13 +189,13 @@ const observer = new IntersectionObserver((entries) => {
         }
       }
       
-      // Unobserve after animation to improve performance
+      // Desobserve após a animação para melhorar o desempenho
       observer.unobserve(entry.target);
     }
   });
 }, observerOptions);
 
-// Observe all sections and skill items
+// Observa todas as seções e itens de habilidade
 document.querySelectorAll('section, .timeline-item, .skill-item').forEach(el => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(20px)';
@@ -207,22 +203,22 @@ document.querySelectorAll('section, .timeline-item, .skill-item').forEach(el => 
   observer.observe(el);
 });
 
-// Initialize everything when DOM is loaded
+// Inicializa tudo quando for carregado
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize language switcher
+  // Inicializa o seletor de idiomas
   const langSwitcher = new LanguageSwitcher();
   
-  // Check for saved language preference
+  // Verifica se há preferências de idioma salvas
   const savedLang = localStorage.getItem('preferred-language');
   if (savedLang && savedLang !== 'pt') {
     langSwitcher.switchLanguage(savedLang);
   }
   
-  // Initialize carousel
+  // Inicializa o carrossel
   new Carousel();
 });
 
-// Add hover effect for timeline items
+// Adiciona efeito de foco para itens da linha do tempo
 document.querySelectorAll('.timeline-item').forEach(item => {
   item.addEventListener('mouseenter', () => {
     const dot = item.querySelector('.timeline-dot');
